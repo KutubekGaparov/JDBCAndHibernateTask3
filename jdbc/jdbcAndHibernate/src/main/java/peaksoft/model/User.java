@@ -57,4 +57,12 @@ public class User {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return
+                "\n id= " + id +
+                " name= " + name +
+                " lastName= " + lastName +
+                " age= " + age ;
+    }
 }
