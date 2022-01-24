@@ -1,17 +1,20 @@
 package peaksoft.dao;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import peaksoft.model.User;
+import peaksoft.util.Util;
 
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
 
     public UserDaoHibernateImpl() {
-
     }
 
     @Override
     public void createUsersTable() {
+
 
     }
 
@@ -32,6 +35,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
+
         return null;
     }
 

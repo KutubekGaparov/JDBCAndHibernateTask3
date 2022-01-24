@@ -54,14 +54,15 @@ public class UserDaoJdbcImpl implements UserDao {
     }
 
     public void removeUserById(long id) {
+        String SQL = "DELETE FROM users where id = (?)";
 
-        try (Connection conn = connection();
-             Statement statement = conn.createStatement()) {
-            String SQL = "DELETE FROM users where id = 1";
-            statement.executeUpdate(SQL);
-
+        try (Connection conn = connection()) {
+            PreparedStatement statement = conn.prepareStatement(SQL);
+            statement.setLong(1,id);
+            statement.executeUpdate();
+            System.out.println("очурулду");
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
