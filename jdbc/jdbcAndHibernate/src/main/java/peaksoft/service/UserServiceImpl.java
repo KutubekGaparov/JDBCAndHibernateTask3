@@ -1,13 +1,17 @@
 package peaksoft.service;
 
+import peaksoft.dao.UserDao;
+import peaksoft.dao.UserDaoHibernateImpl;
 import peaksoft.dao.UserDaoJdbcImpl;
 import peaksoft.model.User;
 
+import java.sql.SQLException;
 import java.util.List;
-import java.util.Scanner;
 
 public class UserServiceImpl implements UserService {
-    UserDaoJdbcImpl dao = new UserDaoJdbcImpl();
+
+    // UserDao dao = new UserDaoJdbcImpl();
+    UserDao dao = new UserDaoHibernateImpl();
 
     public void createUsersTable() {
         dao.createUsersTable();
@@ -17,8 +21,8 @@ public class UserServiceImpl implements UserService {
         dao.dropUsersTable();
     }
 
-    public void saveUser(String name, String lastName, byte age) {
-        dao.saveUser(name,lastName,age);
+    public void saveUser(String name, String lastName, byte age) throws SQLException {
+        dao.saveUser(name, lastName, age);
     }
 
     public void removeUserById(long id) {
